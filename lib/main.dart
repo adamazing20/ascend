@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'mountaint_list.dart';
+
 void main() => runApp(Ascend());
 
 class Ascend extends StatelessWidget {
@@ -18,34 +20,20 @@ class Ascend extends StatelessWidget {
 }
 
 class _AscendHome extends StatelessWidget {
-  int _counter = 0;
   final String title;
-  _AscendHome(this.title);
+   _AscendHome(this.title);
 
   @override
   Widget build(BuildContext context) {
-
+    var height = MediaQuery.of(context).size.height;
+    var width  = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text(this.title),
       ),
-      body: Center(
-
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
+      body: Container(width: width, height: height, color: Colors.deepPurpleAccent,child: MountainList(),)
        // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
