@@ -16,9 +16,18 @@ class MountainList extends StatelessWidget {
 
     cardsList = names
         .map((f) => Card(
-              child: Row(children: [FlutterLogo(size: 200,),
+              child: Row(children: [
+                FlutterLogo(
+                  size: 200,
+                ),
                 Column(
-                  children: <Widget>[Text(f), Padding(padding: EdgeInsets.all(25),), Text("Elevation: ")],
+                  children: <Widget>[
+                    Text(f),
+                    Padding(
+                      padding: EdgeInsets.all(25),
+                    ),
+                    Text("Elevation: ")
+                  ],
                 )
               ]),
             ))
