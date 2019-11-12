@@ -1,8 +1,8 @@
 import 'package:ascend/mnt_details_page.dart';
-import 'package:ascend/mnt_list_bloc.dart';
+import 'package:ascend/mountain_list/mnt_list_bloc.dart';
 import 'package:flutter/material.dart';
 
-import 'mountaint_list.dart';
+import 'package:ascend/mountain_list/mountaint_list.dart';
 
 void main() => runApp(Ascend());
 

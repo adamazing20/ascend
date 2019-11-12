@@ -1,8 +1,9 @@
 import 'package:ascend/mnt_details_page.dart';
+import 'package:ascend/mountain_list/mountain_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'mnt_list_bloc.dart';
+import 'package:ascend/mountain_list/mnt_list_bloc.dart';
 
 //class MountainListInheretedWidget extends InheritedWidget {
 //  final mountainListBlock = MountainListBloc();
@@ -32,42 +33,16 @@ class MountainList extends StatefulWidget {
 }
 
 class _MountainListState extends State<MountainList> {
-
   List<Widget> getMountainCards(context, List<String> name) {
     var names = [];
     names.addAll(name);
 
     var cardsList = <Widget>[];
 
-    cardsList = names
-        .map((f) => Card(
-      child: Row(children: [
-        Hero(
-            tag: "details$f",
-            child: GestureDetector(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MountainDetailsPage(f))),
-                child: FlutterLogo(
-                  size: 200,
-                ))),
-        Column(
-          children: <Widget>[
-            Text(f),
-            Padding(
-              padding: EdgeInsets.all(25),
-            ),
-            Text("Elevation: ")
-          ],
-        )
-      ]),
-    ))
-        .toList();
+    cardsList = names.map((name) => MountainCard(name: name)).toList();
 
     return cardsList;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -93,13 +68,14 @@ class _MountainListState extends State<MountainList> {
   }
 }
 
+//Temporay row used to demo state.
+
 class NewMountainRow extends StatelessWidget {
   final nameController = TextEditingController();
 
   final MountainListBloc mountainListBloc;
 
   NewMountainRow(this.mountainListBloc);
-
 
   @override
   Widget build(BuildContext context) {
