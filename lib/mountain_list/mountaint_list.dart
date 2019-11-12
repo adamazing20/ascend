@@ -1,4 +1,3 @@
-import 'package:ascend/mnt_details_page.dart';
 import 'package:ascend/mountain_list/mountain_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +67,7 @@ class _MountainListState extends State<MountainList> {
   }
 }
 
-//Temporay row used to demo state.
+//Temporary row used to demo state.
 
 class NewMountainRow extends StatelessWidget {
   final nameController = TextEditingController();
@@ -82,8 +81,9 @@ class NewMountainRow extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextField(
+          child: TextField(key: Key("textKey"),
             controller: nameController,
+            decoration: InputDecoration.collapsed(hintText: "Enter Mountain Name"),
           ),
         ),
         IconButton(
